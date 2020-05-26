@@ -1,0 +1,50 @@
+p, span, h2 {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 4vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #737171;
+  margin: 2vh 0;
+}
+
+.one-block {
+  width: 100%;
+  display: block;
+  margin-top: 5vh;
+}
+
+.one-contact {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: .8vh;
+}
+
+.one-block p,
+.one-contact p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.4vh;
+  line-height: 2.7vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #000000;
+}
+
+.one-contact svg {
+  margin-right: 1.2vw;
+}
+
+a {
+  color: #FB9CB4;
+}

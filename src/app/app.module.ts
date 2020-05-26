@@ -18,6 +18,7 @@ import { ProfileComponent } from './home/source/profile/profile.component';
 import { CatalogComponent } from './home/catalog/catalog.component';
 import { CatalogOneComponent } from './home/catalog/catalog-one/catalog-one.component';
 import {HeaderComponent} from './home/source/header/header.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
 // import {homeRoutes} from './home/home.module';
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, children: [
       {path: '', redirectTo: 'catalog', pathMatch: 'full'},
       {path: 'catalog', component: CatalogComponent},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
+      {path: 'contacts', component: ContactsComponent}
     ]},
   {path: 'sign', component: SignComponent, children: [
       {path: '', redirectTo: 'in', pathMatch: 'full'},
@@ -46,7 +48,8 @@ const routes: Routes = [
     FooterComponent,
     ProfileComponent,
     CatalogComponent,
-    CatalogOneComponent
+    CatalogOneComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
