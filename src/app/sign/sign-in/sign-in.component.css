@@ -1,0 +1,65 @@
+p, span, h1, h2 {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/images/makeup-cosmetic-beauty-products-pink-background_23-2148113421.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.sign {
+  height: 75vh;
+  width: 45%;
+  background: #ffffff;
+  position: absolute;
+  left: 5vw;
+  top: 12.5vh;
+  padding: 6vh 4vw;
+  text-align: center;
+}
+
+h1 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 4.7vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #E8A89C;
+}
+
+h1 span {
+  font-family: Satisfy, sans-serif;
+  font-style: normal;
+}
+
+form {
+  width: 100%;
+  display: block;
+  margin-top: 15vh;
+}
+
+.in {
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.in button {
+  width: 100%;
+  background: #D8978D;
+  border: 1px solid #D8978D;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2vh;
+  text-transform: uppercase;
+  padding: 1.2vh 2vw;
+}
+
+.in button:hover {
+  color: #D8978D;
+  background: #ffffff;
+}
