@@ -19,6 +19,7 @@ import { CatalogComponent } from './home/catalog/catalog.component';
 import { CatalogOneComponent } from './home/catalog/catalog-one/catalog-one.component';
 import {HeaderComponent} from './home/source/header/header.component';
 import { ContactsComponent } from './home/contacts/contacts.component';
+import { AboutOneProductComponent } from './home/about-one-product/about-one-product.component';
 // import {homeRoutes} from './home/home.module';
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
       {path: '', redirectTo: 'catalog', pathMatch: 'full'},
       {path: 'catalog', component: CatalogComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'contacts', component: ContactsComponent}
+      {path: 'contacts', component: ContactsComponent},
+      {path: 'one-product', component: AboutOneProductComponent}
     ]},
   {path: 'sign', component: SignComponent, children: [
       {path: '', redirectTo: 'in', pathMatch: 'full'},
@@ -49,7 +51,8 @@ const routes: Routes = [
     ProfileComponent,
     CatalogComponent,
     CatalogOneComponent,
-    ContactsComponent
+    ContactsComponent,
+    AboutOneProductComponent
   ],
   imports: [
     BrowserModule,

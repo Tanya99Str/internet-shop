@@ -50,3 +50,7 @@ button:focus {
 .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: .5375em 0 !important;
 }
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #FC005A!important;
+}

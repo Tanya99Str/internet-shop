@@ -1,0 +1,89 @@
+<div class="container">
+  <button class="back pointer">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.0156 8.01562V9.98438H4.82812L10.4062 15.6094L9 17.0156L0.984375 9L9 0.984375L10.4062 2.39062L4.82812 8.01562H17.0156Z"
+        fill="#9B9B9B"/>
+    </svg>
+    <span>Назад до каталогу</span>
+  </button>
+  <div class="about">
+    <div class="about-top">
+      <div class="product-photos">
+        <div class="display-flex">
+          <button class="prev-photo pointer" (click)="prevSlider()">
+            <svg width="14" viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0.716862 25.7131L22.7689 47.2914C23.7365 48.2362 25.3042 48.2362 26.2743 47.2914C27.2419 46.3467 27.2419 44.8121 26.2743 43.8674L5.97141 24.0012L26.2718 4.13503C27.2395 3.19027 27.2395 1.65573 26.2718 0.708569C25.3042 -0.236195 23.7341 -0.236195 22.7664 0.708569L0.714417 22.2869C-0.23855 23.2219 -0.238548 24.7805 0.716862 25.7131Z"
+                fill="#999999" fill-opacity="0.45"/>
+            </svg>
+          </button>
+          <div class="container-photo-slider">
+            <div class="gallery-slider" #gallerySlider>
+              <div class="one-elem-gallery"></div>
+            </div>
+          </div>
+          <button class="pointer next-photo" (click)="nextSlider()">
+            <svg width="14" viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M26.2831 22.2869L4.23113 0.708573C3.2635 -0.236191 1.69579 -0.236191 0.725721 0.708573C-0.241907 1.65334 -0.241907 3.18788 0.725721 4.13265L21.0286 23.9988L0.728164 43.865C-0.239463 44.8097 -0.239463 46.3443 0.728164 47.2914C1.69579 48.2362 3.26595 48.2362 4.23357 47.2914L26.2856 25.7131C27.2386 24.7781 27.2385 23.2195 26.2831 22.2869Z"
+                fill="#999999" fill-opacity="0.45"/>
+            </svg>
+          </button>
+
+
+        </div>
+
+      </div>
+      <div class="product-information">
+        <h1>Шуба лілового кальору з комірцем</h1>
+        <form>
+          <mat-form-field style="width: 45%;">
+            <mat-label>Розмір</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="select-color">
+            <p>Колір:</p>
+            <div class="colors">
+              <div class="one-color">
+                <mat-radio-button>
+                  <div class="color"></div>
+                </mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <button class="buy pointer">Купити</button>
+      </div>
+
+    </div>
+    <div class="about-bottom">
+      <mat-tab-group>
+        <mat-tab class="container-title-one-elem">
+          <ng-template mat-tab-label>
+            <p>Характеристика</p>
+          </ng-template>
+          <ng-template matTabContent class="container-content-tab">
+
+          </ng-template>
+        </mat-tab>
+        <mat-tab class="container-title-one-elem">
+          <ng-template mat-tab-label>
+            <p>Доставка та оплата</p>
+          </ng-template>
+          <ng-template matTabContent class="container-content-tab">
+            <p class="about-payment">
+              Безкоштовна доставка в усі відділення Нової пошти при замовленні від 500 грн. Після замовлення ми Вам
+              зателефонуємо для підтвердження замовлення. При отриманні замовлення на вказане Вами відділення, ми Вам
+              зателефонуємо та на пошту отримаєте лист. <br>Оплата відбувається після отримання товару.
+            </p>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+  <div class="recommendations-block"></div>
+
+</div>

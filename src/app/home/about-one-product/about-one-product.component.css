@@ -1,0 +1,194 @@
+h1, h2, p, span {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  display: block;
+  padding: 5vh 0;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: none !important;
+  border: none !important;
+  padding: .4vh 0 !important;
+}
+
+.back span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2vh;
+  color: #9B9B9B;
+  margin-left: .7vw;
+}
+
+.back:hover svg * {
+  fill: #666666!important;
+}
+
+.back:hover span {
+  color: #666666;
+}
+
+.about {
+  width: 100%;
+  display: block;
+  border-bottom: .5px solid rgba(0,0,0,.42);
+  margin-top: 5vh;
+}
+
+.about-top {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.product-photos {
+  width: 25vw;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+.display-flex {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.prev-photo, .next-photo {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  position: absolute;
+}
+
+.prev-photo {
+  left: .7vw;
+}
+
+.next-photo {
+  right: .7vw;
+}
+
+.prev-photo:hover svg *,
+.next-photo:hover svg * {
+  fill: #666666!important;
+}
+
+.container-photo-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-slider {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  /*overflow: hidden;*/
+  transition: .3s all;
+}
+
+.one-elem-gallery {
+  width: 25vw;
+  height: 55vh;
+  border-radius: 10px;
+  background: #C4C4C4;
+  background-image: url("../../../assets/images/photo_2020-04-24 21.16.07.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.product-information {
+  width: calc(100% - 30vw);
+}
+
+h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vh;
+  text-align: left;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #776771;
+}
+
+form {
+  margin-top: 7vh;
+}
+
+.select-color {
+  width: 100%;
+  display: block;
+  margin: 2vh 0;
+}
+
+.select-color p {
+  color: rgba(0,0,0,.42);
+  font-size: 2.1vh;
+}
+
+.colors {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.one-color {
+  width: 10vw;
+  /*background: #F3A9CF;*/
+  margin-top: 1.2vh;
+}
+
+.color{
+  width: 2.6vh;
+  height: 2.6vh;
+  border-radius: 100%;
+  background: yellow;
+  margin-left: .5vw;
+}
+
+.buy {
+  background: #FA5D78;
+  border: none;
+  padding: 1.2vh 4vw;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #FFFFFF;
+}
+
+.buy:hover {
+  background: #FB9CB4;
+}
+
+.about-bottom {
+  width: 100%;
+  margin-top: 2vh;
+}
+
+.about-payment {
+  width: 100%;
+  padding: 2vh 0!important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8vh;
+  line-height: 2.5vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #000000;
+}
+
+.recommendations-block {
+  width: 100%;
+}
+
