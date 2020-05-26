@@ -13,6 +13,7 @@ import {MaterialModule} from './shared/material.module';
 import {MatInputModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
+import {SignUpComponent} from './sign/sign-up/sign-up.component';
 // import {homeRoutes} from './home/home.module';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'sign', component: SignComponent, children: [
       {path: '', redirectTo: 'in', pathMatch: 'full'},
       {path: 'in', component: SignInComponent},
+      {path: 'up', component: SignUpComponent}
     ]},
 ];
 
@@ -31,6 +33,7 @@ const routes: Routes = [
     HomeComponent,
     SignComponent,
     SignInComponent,
+    SignUpComponent,
     HeaderComponent,
   ],
   imports: [

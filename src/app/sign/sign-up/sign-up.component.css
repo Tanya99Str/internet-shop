@@ -41,19 +41,6 @@ form {
   position: relative;
 }
 
-.forgot {
-  color: #D7728B;
-  font-weight: 400;
-  font-size: .8vw;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.forgot:hover {
-  color: #B5697C;
-}
-
 .container-button {
   width: 60%;
   margin-top: 17vh;
@@ -79,7 +66,7 @@ form {
   font-weight: normal;
   font-size: 1vw;
   margin: auto;
-  margin-top: 5vh;
+  margin-top: 2vh;
   text-align: center;
 }
 
@@ -93,6 +80,3 @@ form {
   color: #B5697C;
 }
 
-button:hover svg * {
-  fill: #9E9D9D!important;
-}
