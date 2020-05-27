@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="back pointer">
+  <button class="back pointer" routerLink="../catalog">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M17.0156 8.01562V9.98438H4.82812L10.4062 15.6094L9 17.0156L0.984375 9L9 0.984375L10.4062 2.39062L4.82812 8.01562H17.0156Z"
@@ -55,7 +55,7 @@
             </div>
           </div>
         </form>
-        <button class="buy pointer">Купити</button>
+        <button class="buy pointer" (click)="createOrder()">Купити</button>
       </div>
 
     </div>
@@ -63,20 +63,40 @@
       <mat-tab-group>
         <mat-tab class="container-title-one-elem">
           <ng-template mat-tab-label>
-            <p>Характеристика</p>
+            <p class="header">Характеристика</p>
           </ng-template>
           <ng-template matTabContent class="container-content-tab">
+            <div class="description">
+              <div class="more-detail">
+                <div class="more-detail-one-block">
+                  <p>Розмір на фото: <span>Розмір на фото: 44</span></p>
+                  <p>Колір: <span>жовтий</span></p>
+                  <p>Колекція: <span>Новий сезон</span></p>
+                </div>
+                <div class="more-detail-one-block">
+                  <p>Склад: <span> 35% шерсть, 35% віскоза, 30% акрил</span></p>
+                  <p>Матеріал: <span>Шерсть з акрилом</span></p>
+                </div>
+              </div>
 
+            </div>
+            <div class="general-details">
+              <p>Повітряне плаття з шифону з великим квітковим принтом. Силуетних виробу надає еластична тасьма по лінії
+                талії. Ідельно підійде власницям фігури "груша" та "прямокутник". Заміри вироби в 44 розмірі: - довжина
+                по спинці - 111 см; - довжина рукава (від плечового шва) -
+                66 см.</p>
+            </div>
           </ng-template>
         </mat-tab>
         <mat-tab class="container-title-one-elem">
           <ng-template mat-tab-label>
-            <p>Доставка та оплата</p>
+            <p class="header">Доставка та оплата</p>
           </ng-template>
           <ng-template matTabContent class="container-content-tab">
             <p class="about-payment">
               Безкоштовна доставка в усі відділення Нової пошти при замовленні від 500 грн. Після замовлення ми Вам
-              зателефонуємо для підтвердження замовлення. При отриманні замовлення на вказане Вами відділення, ми Вам
+              зателефонуємо для підтвердження замовлення. <br>При отриманні замовлення на вказане Вами відділення, ми
+              Вам
               зателефонуємо та на пошту отримаєте лист. <br>Оплата відбувається після отримання товару.
             </p>
           </ng-template>
@@ -84,6 +104,56 @@
       </mat-tab-group>
     </div>
   </div>
-  <div class="recommendations-block"></div>
+  <div class="recommendations-block">
+    <div class="display-flex">
+      <button class="pointer prev-slider" (click)="back()">
+        <svg height="40" viewBox="0 0 47 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1.24787 44.998L39.6347 82.76C41.3191 84.4133 44.0481 84.4133 45.7367 82.76C47.4211 81.1067 47.4211 78.4212 45.7367 76.7679L10.3947 42.0021L45.7325 7.23631C47.4168 5.58297 47.4168 2.89752 45.7325 1.24C44.0481 -0.413338 41.3148 -0.413338 39.6304 1.24L1.24361 39.002C-0.415253 40.6383 -0.415253 43.3659 1.24787 44.998Z"
+            fill="#999999"/>
+        </svg>
+      </button>
+      <div class="container-photo-slider">
+        <div class="recommendations" #mainSlider>
+          <div class="one-recommendation">
+            <div class="one-recommendation-photo"></div>
+            <div class="one-recommendation-content">
+              <h2>Шуба лілового кальору з комірцем</h2>
+              <div class="pos-absolute">
+                <p class="price">Ціна: 10 000₴</p>
+                <button class="pointer">Купити</button>
+              </div>
+            </div>
+          </div>
+          <div class="one-recommendation">
+            <div class="one-recommendation-photo"></div>
+            <div class="one-recommendation-content">
+              <h2>Шуба лілового кальору з комірцем</h2>
+              <div class="pos-absolute">
+                <p class="price">Ціна: 10 000₴</p>
+                <button class="pointer">Купити</button>
+              </div>
+            </div>
+          </div>
+          <div class="one-recommendation">
+            <div class="one-recommendation-photo"></div>
+            <div class="one-recommendation-content">
+              <h2>Шуба лілового кальору з комірцем</h2>
+              <div class="pos-absolute">
+                <p class="price">Ціна: 10 000₴</p>
+                <button class="pointer" (click)="createOrder()">Купити</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="pointer next-slider" (click)="next()">
+        <svg height="40" viewBox="0 0 47 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M45.7521 39.002L7.3653 1.24C5.68091 -0.413334 2.95193 -0.413334 1.26329 1.24C-0.421097 2.89334 -0.421097 5.57879 1.26329 7.23213L36.6053 41.9979L1.26755 76.7637C-0.416843 78.417 -0.416843 81.1025 1.26755 82.76C2.95193 84.4133 5.68517 84.4133 7.36955 82.76L45.7564 44.998C47.4153 43.3617 47.4152 40.6341 45.7521 39.002Z" fill="#999999"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
 
 </div>

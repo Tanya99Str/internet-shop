@@ -20,6 +20,10 @@ import { CatalogOneComponent } from './home/catalog/catalog-one/catalog-one.comp
 import {HeaderComponent} from './home/source/header/header.component';
 import { ContactsComponent } from './home/contacts/contacts.component';
 import { AboutOneProductComponent } from './home/about-one-product/about-one-product.component';
+import { OrdersComponent } from './home/orders/orders.component';
+import { OneOrderComponent } from './home/orders/one-order/one-order.component';
+import { CreateOrderComponent } from './dialog/create-order/create-order.component';
+import { CancelOrderComponent } from './dialog/cancel-order/cancel-order.component';
 // import {homeRoutes} from './home/home.module';
 
 const routes: Routes = [
@@ -29,7 +33,8 @@ const routes: Routes = [
       {path: 'catalog', component: CatalogComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'contacts', component: ContactsComponent},
-      {path: 'one-product', component: AboutOneProductComponent}
+      {path: 'one-product', component: AboutOneProductComponent},
+      {path: 'orders', component: OrdersComponent}
     ]},
   {path: 'sign', component: SignComponent, children: [
       {path: '', redirectTo: 'in', pathMatch: 'full'},
@@ -52,7 +57,14 @@ const routes: Routes = [
     CatalogComponent,
     CatalogOneComponent,
     ContactsComponent,
-    AboutOneProductComponent
+    AboutOneProductComponent,
+    OrdersComponent,
+    OneOrderComponent,
+    CreateOrderComponent,
+    CancelOrderComponent
+  ],
+  entryComponents: [
+    CreateOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ p, span, h1, h2, h3, h4 {
 }
 
 button:focus {
-  outline: 0;
+  outline: 0!important;
 }
 
 .pointer {

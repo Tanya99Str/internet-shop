@@ -177,18 +177,182 @@ form {
   margin-top: 2vh;
 }
 
+.header {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #000000;
+
+}
+
 .about-payment {
   width: 100%;
   padding: 2vh 0!important;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.8vh;
-  line-height: 2.5vh;
+  font-size: 2vh;
+  line-height: 2.7vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #000000;
+}
+
+.description {
+  width: 100%;
+  display: block;
+  padding: 2vh 0;
+}
+
+.more-detail {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.more-detail-one-block {
+  width: 50%;
+  display: block;
+}
+
+.more-detail-one-block p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  line-height: 3vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #776771;
+}
+
+.more-detail-one-block span {
+  color: #000000;
+}
+
+.general-details {
+  width: 100%;
+  margin: 2vh 0;
+}
+
+.general-details {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  line-height: 3vh;
   font-feature-settings: 'tnum' on, 'onum' on;
   color: #000000;
 }
 
 .recommendations-block {
   width: 100%;
+  margin: 4vh 0;
+  display: flex;
+  position: relative;
 }
 
+.prev-slider, .next-slider {
+  position: absolute;
+  z-index: 100000;
+  background: none !important;
+  border: none !important;
+}
+
+.prev-slider {
+  left: -2.5vw;
+}
+
+.next-slider {
+  right: -2.5vw;
+}
+
+.container-photo-slider {
+  width: 90vw;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  overflow: hidden;
+}
+
+.recommendations {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  /*overflow: hidden;*/
+  transition: .3s all;
+}
+
+.one-recommendation {
+  min-width: 24vw;
+  /*max-width: 30vw;*/
+  margin-right: 4vw;
+  /*min-height: 27vh;*/
+  /*background: #C4C4C4;*/
+  border-radius: 3px;
+  /*background-position: center center;*/
+  /*background-size: 100% auto;*/
+  /*background-repeat: no-repeat;*/
+  display: block;
+}
+
+.one-recommendation-photo {
+  width: 100%;
+  height: 50vh;
+  border-radius: 5px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/images/photo_2020-04-24 21.16.07.jpeg");
+}
+
+.one-recommendation-content {
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-bottom: 15vh;
+}
+
+.one-recommendation-content h2 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.4vh;
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #776771;
+  margin-top: 1.2vh;
+}
+
+.pos-absolute {
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.price {
+  text-align: right;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vh;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #4F4F4F;
+}
+
+.pos-absolute button {
+  width: 100%;
+  border: none!important;
+  background: #FB9CB4;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.9vh;
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'onum' on;
+  color: #FFFFFF;
+  padding: 1.4vh 0;
+  margin-top: 1.4vh;
+}
+
+.pos-absolute button:hover {
+  background: #FA5D78;
+}
