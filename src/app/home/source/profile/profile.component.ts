@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+import {color} from '../../../shared/config/export.function';
 
 @Component({
   selector: 'app-profile',
@@ -51,6 +52,10 @@ export class ProfileComponent implements OnInit {
       phone: new FormControl(),
       postOffice: new FormControl()
     });
+  }
+
+  color(i) {
+    return color(i);
   }
 
 }
