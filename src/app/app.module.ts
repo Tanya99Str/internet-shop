@@ -24,7 +24,7 @@ import { OrdersComponent } from './home/orders/orders.component';
 import { OneOrderComponent } from './home/orders/one-order/one-order.component';
 import { CreateOrderComponent } from './dialog/create-order/create-order.component';
 import { CancelOrderComponent } from './dialog/cancel-order/cancel-order.component';
-// import {homeRoutes} from './home/home.module';
+import { ConfirmExitComponent } from './dialog/confirm-exit/confirm-exit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -61,10 +61,13 @@ const routes: Routes = [
     OrdersComponent,
     OneOrderComponent,
     CreateOrderComponent,
-    CancelOrderComponent
+    CancelOrderComponent,
+    ConfirmExitComponent
   ],
   entryComponents: [
-    CreateOrderComponent
+    CreateOrderComponent,
+    CancelOrderComponent,
+    ConfirmExitComponent
   ],
   imports: [
     BrowserModule,
