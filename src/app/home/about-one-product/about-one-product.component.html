@@ -30,13 +30,10 @@
                 fill="#999999" fill-opacity="0.45"/>
             </svg>
           </button>
-
-
         </div>
-
       </div>
       <div class="product-information">
-        <h1>Шуба лілового кальору з комірцем</h1>
+        <h1>{{product?.name}}</h1>
         <form>
           <mat-form-field style="width: 45%;">
             <mat-label>Розмір</mat-label>
@@ -47,9 +44,9 @@
           <div class="select-color">
             <p>Колір:</p>
             <div class="colors">
-              <div class="one-color">
+              <div class="one-color" *ngFor="let color of product?.colours">
                 <mat-radio-button>
-                  <div class="color"></div>
+                  <div class="color" [ngStyle]="{'background': color?.name}"></div>
                 </mat-radio-button>
               </div>
             </div>
@@ -69,22 +66,35 @@
             <div class="description">
               <div class="more-detail">
                 <div class="more-detail-one-block">
-                  <p>Розмір на фото: <span>Розмір на фото: 44</span></p>
-                  <p>Колір: <span>жовтий</span></p>
-                  <p>Колекція: <span>Новий сезон</span></p>
+                  <p>Розмір:
+                    <span *ngFor="let size of product?.sizes">{{size.value}}</span>
+                    <span *ngIf="product?.sizes?.length==0">Не вказано</span>
+                  </p>
+                  <p>Колір:
+                    <span *ngFor="let color of product?.colours">{{color.name}}</span>
+                    <span *ngIf="product?.colours?.length==0">Не вказано</span>
+                  </p>
+                  <p>Колекція:
+                    <span *ngIf="product?.collection?.name">{{ product?.collection.name}}</span>
+                    <span *ngIf="!product?.collection?.name">Не вказано</span>
+                  </p>
                 </div>
                 <div class="more-detail-one-block">
-                  <p>Склад: <span> 35% шерсть, 35% віскоза, 30% акрил</span></p>
-                  <p>Матеріал: <span>Шерсть з акрилом</span></p>
+                  <p>Склад:
+                    <span *ngIf="product?.madeOf">{{ product?.madeOf}}</span>
+                    <span *ngIf="!product?.madeOf">Не вказано</span>
+                  </p>
+                  <p>Матеріал:
+                    <span *ngIf="product?.material">{{ product?.material}}</span>
+                    <span *ngIf="!product?.material">Не вказано</span>
+                  </p>
                 </div>
               </div>
 
             </div>
             <div class="general-details">
-              <p>Повітряне плаття з шифону з великим квітковим принтом. Силуетних виробу надає еластична тасьма по лінії
-                талії. Ідельно підійде власницям фігури "груша" та "прямокутник". Заміри вироби в 44 розмірі: - довжина
-                по спинці - 111 см; - довжина рукава (від плечового шва) -
-                66 см.</p>
+              <p *ngIf="product?.description">{{product?.description}}</p>
+              <p *ngIf="!product?.description">Опис відсутній</p>
             </div>
           </ng-template>
         </mat-tab>
@@ -104,7 +114,7 @@
       </mat-tab-group>
     </div>
   </div>
-  <div class="recommendations-block">
+  <div class="recommendations-block" *ngIf="product?.suggestedProducts">
     <div class="display-flex">
       <button class="pointer prev-slider" (click)="back()">
         <svg height="40" viewBox="0 0 47 84" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,33 +125,21 @@
       </button>
       <div class="container-photo-slider">
         <div class="recommendations" #mainSlider>
-          <div class="one-recommendation">
-            <div class="one-recommendation-photo"></div>
-            <div class="one-recommendation-content">
-              <h2>Шуба лілового кальору з комірцем</h2>
-              <div class="pos-absolute">
-                <p class="price">Ціна: 10 000₴</p>
-                <button class="pointer">Купити</button>
-              </div>
+          <div class="one-recommendation" *ngFor="let one of product?.suggestedProducts">
+            <div class="one-recommendation-photo" [ngStyle]="{'background-image':'url(data:'+(one.image1ContentType)+';base64,' + one.image1 + ')'}" *ngIf="one.image1"></div>
+            <div class="one-recommendation-photo" *ngIf="!one.image1" style="background: #E6E6E6;">
+              <svg width="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M61.5821 8.31034V61.8159H7.84388V8.31034H61.5821ZM61.5821 0.666687H7.84388C3.62159 0.666687 0.166992 4.10633 0.166992 8.31034V61.8159C0.166992 66.02 3.62159 69.4596 7.84388 69.4596H61.5821C65.8044 69.4596 69.259 66.02 69.259 61.8159V8.31034C69.259 4.10633 65.8044 0.666687 61.5821 0.666687ZM42.9273 34.5281L31.4119 49.3186L23.1977 39.42L11.6823 54.1723H57.7437L42.9273 34.5281Z" fill="#A7A6A6" fill-opacity="0.68"/>
+                <ellipse cx="21.9845" cy="22.3909" rx="6.0607" ry="6.03447" fill="#A7A6A6" fill-opacity="0.68"/>
+              </svg>
             </div>
-          </div>
-          <div class="one-recommendation">
-            <div class="one-recommendation-photo"></div>
+
+
             <div class="one-recommendation-content">
-              <h2>Шуба лілового кальору з комірцем</h2>
+              <h2>{{one.name}}</h2>
               <div class="pos-absolute">
-                <p class="price">Ціна: 10 000₴</p>
+                <p class="price">Ціна: {{one.price}}₴</p>
                 <button class="pointer">Купити</button>
-              </div>
-            </div>
-          </div>
-          <div class="one-recommendation">
-            <div class="one-recommendation-photo"></div>
-            <div class="one-recommendation-content">
-              <h2>Шуба лілового кальору з комірцем</h2>
-              <div class="pos-absolute">
-                <p class="price">Ціна: 10 000₴</p>
-                <button class="pointer" (click)="createOrder()">Купити</button>
               </div>
             </div>
           </div>

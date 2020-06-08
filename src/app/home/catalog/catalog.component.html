@@ -30,28 +30,9 @@
 
   </div>
   <div class="catalog">
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
+    <div class="one-elem" *ngFor="let one of products;trackBy: trackId">
+      <app-catalog-one [product]="one"></app-catalog-one>
     </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-    <div class="one-elem">
-      <app-catalog-one></app-catalog-one>
-    </div>
-
   </div>
 
 </div>

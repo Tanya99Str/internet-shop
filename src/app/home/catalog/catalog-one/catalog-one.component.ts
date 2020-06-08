@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProductModel} from '../../../shared/service/models/product.model';
+import {MatSnackBar} from '@angular/material';
+import {ProductService} from '../../../shared/service/backend/product.service';
 
 @Component({
   selector: 'app-catalog-one',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogOneComponent implements OnInit {
 
-  constructor() { }
+  @Input() product: ProductModel;
+
+  constructor(private _productService: ProductService,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
