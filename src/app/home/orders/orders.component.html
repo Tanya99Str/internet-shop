@@ -1,4 +1,4 @@
 <div class="container">
-  <app-one-order></app-one-order>
+  <app-one-order *ngFor="let one of orders" [order]="one"></app-one-order>
 </div>
 

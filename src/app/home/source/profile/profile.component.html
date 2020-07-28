@@ -1,14 +1,44 @@
 <div class="container">
   <div class="container-form">
     <div class="container-form-left">
-      <div class="cont-photo">
-        <input type="file">
-        <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M61.5821 8.31034V61.8159H7.84388V8.31034H61.5821ZM61.5821 0.666687H7.84388C3.62159 0.666687 0.166992 4.10633 0.166992 8.31034V61.8159C0.166992 66.02 3.62159 69.4596 7.84388 69.4596H61.5821C65.8044 69.4596 69.259 66.02 69.259 61.8159V8.31034C69.259 4.10633 65.8044 0.666687 61.5821 0.666687ZM42.9273 34.5281L31.4119 49.3186L23.1977 39.42L11.6823 54.1723H57.7437L42.9273 34.5281Z" fill="#A7A6A6" fill-opacity="0.68"/>
-          <ellipse cx="21.9845" cy="22.3909" rx="6.0607" ry="6.03447" fill="#A7A6A6" fill-opacity="0.68"/>
-        </svg>
-        <p>Фото <br>профілю</p>
+
+
+
+
+
+
+      <div class="cont-photo" *ngIf="user?.image&&!newPhotoFormGroup.get('image').value">
+        <button type="button" (click)="deleteImage()"
+                class="pointer" *ngIf="user?.image">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.9844 1.42188L8.40625 7L13.9844 12.5781L12.5781 13.9844L7 8.40625L1.42188 13.9844L0.015625 12.5781L5.59375 7L0.015625 1.42188L1.42188 0.015625L7 5.59375L12.5781 0.015625L13.9844 1.42188Z" fill="#666666"/>
+          </svg>
+        </button>
+        <div class="photo"
+             [ngStyle]="{'background-image':'url(data:'+(user?.imageContentType)+';base64,' + user?.image + ')'}"
+             *ngIf="user?.image"></div>
       </div>
+
+      <div class="cont-photo" *ngIf="!user?.image">
+        <input type="file" id="fileUserPhoto" (change)="setFileData($event, 'image', true)" accept="image/*"/>
+        <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileUserPhoto')"
+                class="pointer" *ngIf="newPhotoFormGroup.get('image').value">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.9844 1.42188L8.40625 7L13.9844 12.5781L12.5781 13.9844L7 8.40625L1.42188 13.9844L0.015625 12.5781L5.59375 7L0.015625 1.42188L1.42188 0.015625L7 5.59375L12.5781 0.015625L13.9844 1.42188Z" fill="#666666"/>
+          </svg>
+        </button>
+        <div class="photo"
+             [ngStyle]="{'background-image':'url(data:'+ newPhotoFormGroup.get('imageContentType')!.value + ';base64,' + newPhotoFormGroup.get('image')!.value + ')'}"
+             *ngIf="newPhotoFormGroup.get('image').value"></div>
+        <div class="photo"  [ngStyle]="{'background': color(user?.id)}"
+             *ngIf="!user?.image&&!newPhotoFormGroup.get('image').value">
+          <p>
+            <span *ngIf="user?.firstName">{{user?.firstName[0].toUpperCase()}}</span>
+            <span *ngIf="user?.lastName">{{user?.lastName[0].toUpperCase()}}</span>
+          </p>
+        </div>
+      </div>
+
       <form class="change-pass-cont" [formGroup]="changePass">
         <!--<div class="flex-block">-->
         <mat-form-field style="width: 100%; margin-top: 1vh;">
@@ -52,7 +82,7 @@
               </svg>
             </mat-icon>
           </button>
-          <mat-error>Введіть пароль</mat-error>
+          <mat-error *ngIf="changePass.get('oldPass').hasError('required')">Введіть пароль</mat-error>
         </mat-form-field>
         <mat-form-field style="width: 100%; margin-top: 1vh;">
           <mat-label>Новий пароль</mat-label>
@@ -95,7 +125,7 @@
               </svg>
             </mat-icon>
           </button>
-          <mat-error>Введіть пароль</mat-error>
+          <mat-error *ngIf="changePass.get('newPass').hasError('required')">Введіть новий пароль</mat-error>
         </mat-form-field>
         <mat-form-field style="width: 100%; margin-top: 1vh;">
           <mat-label>Повторіть пароль</mat-label>
@@ -138,11 +168,14 @@
               </svg>
             </mat-icon>
           </button>
-          <mat-error>Введіть пароль</mat-error>
+          <mat-error *ngIf="changePass.get('repeatNewPass').hasError('required')||changePass.get('repeatNewPass').hasError('notSame')">
+            <span *ngIf="changePass.get('repeatNewPass').hasError('required')">Повторіть новий пароль</span>
+            <span *ngIf="changePass.get('repeatNewPass').hasError('notSame')">Паролі не співпадають</span>
+          </mat-error>
         </mat-form-field>
         <!--</div>-->
         <!--<div class="refresh">-->
-        <button class="change-pass">Оновити пароль</button>
+        <button class="change-pass pointer" (click)="updatePassword()">Оновити пароль</button>
         <!--</div>-->
       </form>
     </div>
@@ -153,46 +186,30 @@
       <form class="form-right-content" [formGroup]="baseInfoFormGroup">
         <div class="form-right-one-line">
           <mat-form-field style="width: 48%;">
-            <mat-label>Прізвище</mat-label>
-            <input  matInput type="text" formControlName="lastName">
+            <mat-label>Ім'я</mat-label>
+            <input  matInput type="text"
+                    [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field style="width: 48%;">
             <mat-label>Прізвище</mat-label>
-            <input  matInput type="text" formControlName="name">
-          </mat-form-field>
-        </div>
-        <div class="form-right-one-line">
-          <mat-form-field style="width: 48%;">
-            <mat-label>Прізвище</mat-label>
-            <input  matInput type="text" formControlName="middleName">
-          </mat-form-field>
-          <mat-form-field style="width: 48%;">
-            <mat-label>Прізвище</mat-label>
-            <input  matInput type="date" formControlName="birthday">
+            <input  matInput type="text"
+                    [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </div>
         <div class="form-right-one-line">
           <mat-form-field style="width: 48%;">
             <mat-label>Email</mat-label>
-            <input  matInput type="text" formControlName="email">
+            <input  matInput type="text"
+                    [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field style="width: 48%;">
             <mat-label>Телефон</mat-label>
-            <input  matInput type="text" formControlName="phone">
-          </mat-form-field>
-        </div>
-        <div class="form-right-one-line">
-          <mat-form-field style="width: 48%;">
-            <mat-label>Місто</mat-label>
-            <input  matInput type="text" formControlName="email">
-          </mat-form-field>
-          <mat-form-field style="width: 48%;">
-            <mat-label>Відділення пошти</mat-label>
-            <input  matInput type="text" formControlName="phone">
+            <input  matInput type="text"
+                    [(ngModel)]="user.phone" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </div>
         <div class="refresh">
-          <button>Оновити інформацію</button>
+          <button (click)="updateUserInformation()" class="pointer">Оновити інформацію</button>
         </div>
       </form>
 

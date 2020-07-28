@@ -13,12 +13,17 @@ p, span, h1, h2 {
 
 .photo {
   width: 15vw;
+  height: 25vh;
   /*height: 100%;*/
-  background-image: url("../../../../assets/images/photo_2020-04-24 21.16.07.jpeg");
+  /*background-image: url("../../../../assets/images/photo_2020-04-24 21.16.07.jpeg");*/
+  background: #EFEFEF;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .information-block {

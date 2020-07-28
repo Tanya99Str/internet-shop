@@ -99,10 +99,22 @@ h1, h2, p, span {
   height: 55vh;
   border-radius: 10px;
   background: #C4C4C4;
-  background-image: url("../../../assets/images/photo_2020-04-24 21.16.07.jpeg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.gallery-photo {
+  width: 25vw;
+  height: 55vh;
+  border-radius: 10px;
+  background: #C4C4C4;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-information {
@@ -293,6 +305,7 @@ form {
   /*background-size: 100% auto;*/
   /*background-repeat: no-repeat;*/
   display: block;
+  position: relative;
 }
 
 .one-recommendation-photo {
@@ -308,7 +321,7 @@ form {
 .one-recommendation-content {
   width: 100%;
   display: block;
-  position: relative;
+  /*position: relative;*/
   padding-bottom: 15vh;
 }
 
