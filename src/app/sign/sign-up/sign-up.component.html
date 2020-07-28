@@ -46,6 +46,7 @@
       <mat-error
         *ngIf="signUpFormGroup.get('password').hasError('required')||signUpFormGroup.get('password').hasError('incorrect')">
         <span *ngIf="signUpFormGroup.get('password').hasError('required')">Введіть пароль</span>
+        <span *ngIf="signUpFormGroup.get('password').hasError('incorrect')">Некоректний формат паролю</span>
       </mat-error>
     </mat-form-field>
 
@@ -53,7 +54,7 @@
       <mat-label>Повторіть пароль</mat-label>
       <input matInput formControlName="repeatPassword"
              [type]="hideRepeatPass ? 'password' : 'text'"
-             [ngClass]="{'hide-text':!hideRepeatPass, 'no-hide-text':hideRepeatPass}"  name="repeatPassword-{{random}}" autocomplete="new-password">
+             [ngClass]="{'hide-text':!hideRepeatPass, 'no-hide-text':hideRepeatPass}" autocomplete="new-password">
       <button mat-icon-button matSuffix (click)="hideRepeatPass = !hideRepeatPass">
         <mat-icon (click)="hideRepeatPass ? 'visibility_off' : 'visibility'" *ngIf="hideRepeatPass">
           <svg width="20" height="19" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +80,7 @@
   </form>
 
   <div class="container-button">
-    <button class="sign-in pointer">Зареєструватись</button>
+    <button class="sign-in pointer" (click)="register()">Зареєструватись</button>
     <p (click)="open('in')">Ви вже зареєстровані? <span>Увійти</span></p>
   </div>
 </div>

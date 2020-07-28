@@ -11,16 +11,37 @@
     <div class="about-top">
       <div class="product-photos">
         <div class="display-flex">
-          <button class="prev-photo pointer" (click)="prevSlider()">
-            <svg width="14" viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M0.716862 25.7131L22.7689 47.2914C23.7365 48.2362 25.3042 48.2362 26.2743 47.2914C27.2419 46.3467 27.2419 44.8121 26.2743 43.8674L5.97141 24.0012L26.2718 4.13503C27.2395 3.19027 27.2395 1.65573 26.2718 0.708569C25.3042 -0.236195 23.7341 -0.236195 22.7664 0.708569L0.714417 22.2869C-0.23855 23.2219 -0.238548 24.7805 0.716862 25.7131Z"
-                fill="#999999" fill-opacity="0.45"/>
-            </svg>
-          </button>
+<!--          <button class="prev-photo pointer" (click)="prevSlider()">-->
+<!--            <svg width="14" viewBox="0 0 27 48" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--              <path-->
+<!--                d="M0.716862 25.7131L22.7689 47.2914C23.7365 48.2362 25.3042 48.2362 26.2743 47.2914C27.2419 46.3467 27.2419 44.8121 26.2743 43.8674L5.97141 24.0012L26.2718 4.13503C27.2395 3.19027 27.2395 1.65573 26.2718 0.708569C25.3042 -0.236195 23.7341 -0.236195 22.7664 0.708569L0.714417 22.2869C-0.23855 23.2219 -0.238548 24.7805 0.716862 25.7131Z"-->
+<!--                fill="#999999" fill-opacity="0.45"/>-->
+<!--            </svg>-->
+<!--          </button>-->
           <div class="container-photo-slider">
             <div class="gallery-slider" #gallerySlider>
-              <div class="one-elem-gallery"></div>
+              <div class="one-elem-gallery">
+                <div class="gallery-photo"
+                     [ngStyle]="{'background-image':'url(data:'+(product.image1ContentType)+';base64,' + product.image1 + ')'}" *ngIf="product.image1">
+
+                </div>
+              </div>
+              <div class="one-elem-gallery">
+                <div class="gallery-photo"
+                     [ngStyle]="{'background-image':'url(data:'+(product.image2ContentType)+';base64,' + product.image2 + ')'}" *ngIf="product.image2"></div>
+              </div>
+              <div class="one-elem-gallery">
+                <div class="gallery-photo"
+                     [ngStyle]="{'background-image':'url(data:'+(product.image3ContentType)+';base64,' + product.image3 + ')'}" *ngIf="product.image3"></div>
+              </div>
+              <div class="one-elem-gallery">
+                <div class="gallery-photo"
+                     [ngStyle]="{'background-image':'url(data:'+(product.image4ContentType)+';base64,' + product.image4 + ')'}" *ngIf="product.image4"></div>
+              </div>
+              <div class="one-elem-gallery">
+                <div class="gallery-photo"
+                     [ngStyle]="{'background-image':'url(data:'+(product.image5ContentType)+';base64,' + product.image5 + ')'}" *ngIf="product.image5"Z></div>
+              </div>
             </div>
           </div>
           <button class="pointer next-photo" (click)="nextSlider()">
@@ -35,17 +56,21 @@
       <div class="product-information">
         <h1>{{product?.name}}</h1>
         <form>
-          <mat-form-field style="width: 45%;">
-            <mat-label>Розмір</mat-label>
-            <mat-select>
-              <mat-option></mat-option>
-            </mat-select>
-          </mat-form-field>
+          <h3>Розмір:</h3>
+          <mat-radio-button name="category" *ngFor="let size of product.sizes"
+                            (change)="selectSize($event)"  [value]="size"
+                            style="width: 100%; margin-top: .4vh;">
+            <span>{{size?.value}}</span>
+          </mat-radio-button>
+
+
+
+
           <div class="select-color">
             <p>Колір:</p>
             <div class="colors">
               <div class="one-color" *ngFor="let color of product?.colours">
-                <mat-radio-button>
+                <mat-radio-button (change)="selectColor($event)" [value]="color">
                   <div class="color" [ngStyle]="{'background': color?.name}"></div>
                 </mat-radio-button>
               </div>
@@ -67,15 +92,15 @@
               <div class="more-detail">
                 <div class="more-detail-one-block">
                   <p>Розмір:
-                    <span *ngFor="let size of product?.sizes">{{size.value}}</span>
+                    <span *ngFor="let size of product?.sizes">{{size.value}} </span>
                     <span *ngIf="product?.sizes?.length==0">Не вказано</span>
                   </p>
                   <p>Колір:
-                    <span *ngFor="let color of product?.colours">{{color.name}}</span>
+                    <span *ngFor="let color of product?.colours">{{color.name}} </span>
                     <span *ngIf="product?.colours?.length==0">Не вказано</span>
                   </p>
                   <p>Колекція:
-                    <span *ngIf="product?.collection?.name">{{ product?.collection.name}}</span>
+                    <span *ngIf="product?.collection?.name">{{ product?.collection.name}} </span>
                     <span *ngIf="!product?.collection?.name">Не вказано</span>
                   </p>
                 </div>
@@ -114,7 +139,7 @@
       </mat-tab-group>
     </div>
   </div>
-  <div class="recommendations-block" *ngIf="product?.suggestedProducts">
+  <div class="recommendations-block" *ngIf="product?.suggestedProducts?.length>0">
     <div class="display-flex">
       <button class="pointer prev-slider" (click)="back()">
         <svg height="40" viewBox="0 0 47 84" fill="none" xmlns="http://www.w3.org/2000/svg">

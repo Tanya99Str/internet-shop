@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {CancelOrderComponent} from '../../../dialog/cancel-order/cancel-order.component';
+import {ProductModel} from '../../../shared/service/models/product.model';
+import {OrdersModel} from '../../../shared/service/models/orders.model';
 
 @Component({
   selector: 'app-one-order',
@@ -8,6 +10,8 @@ import {CancelOrderComponent} from '../../../dialog/cancel-order/cancel-order.co
   styleUrls: ['./one-order.component.css']
 })
 export class OneOrderComponent implements OnInit {
+
+  @Input() order: OrdersModel;
 
   constructor(public dialog: MatDialog) { }
 

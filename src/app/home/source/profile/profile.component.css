@@ -37,6 +37,30 @@ p, span, h1, h2 {
   justify-content: center;
   position: relative;
   z-index: 100;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.photo {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-photo button {
+  background: none !important;
+  border: none !important;
+  padding: 1px;
+  position: absolute;
+  right: -14px;
+  top: -7px;
 }
 
 .cont-photo svg {
@@ -58,6 +82,15 @@ p, span, h1, h2 {
   color: #A7A6A6;
   font-size: .9vw;
   margin-top: 3px;
+}
+
+.cont-photo span, .photo span {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 2.2vw;
+  /*margin-top: 3px;*/
 }
 
 .change-pass-cont {

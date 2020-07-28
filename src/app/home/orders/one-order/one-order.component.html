@@ -1,15 +1,22 @@
 <div class="container">
-  <div class="photo"></div>
+  <div class="photo" [ngStyle]="{'background-image':'url(data:'+(order.product.image1ContentType)+';base64,' + order.product.image1 + ')'}" *ngIf="order.product.image1"></div>
+  <div class="photo" *ngIf="!order.product.image1">
+    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M61.5811 8.31034V61.8159H7.84291V8.31034H61.5811ZM61.5811 0.666687H7.84291C3.62062 0.666687 0.166016 4.10633 0.166016 8.31034V61.8159C0.166016 66.02 3.62062 69.4596 7.84291 69.4596H61.5811C65.8034 69.4596 69.258 66.02 69.258 61.8159V8.31034C69.258 4.10633 65.8034 0.666687 61.5811 0.666687ZM42.9263 34.5281L31.411 49.3186L23.1967 39.42L11.6814 54.1723H57.7427L42.9263 34.5281Z" fill="#A7A6A6" fill-opacity="0.68"/>
+      <ellipse cx="21.9845" cy="22.3909" rx="6.0607" ry="6.03447" fill="#A7A6A6" fill-opacity="0.68"/>
+    </svg>
+  </div>
   <div class="information-block">
-    <h1>Шуба лілового кальору з комірцем</h1>
+    <h1>{{order.product.name}}</h1>
     <div class="details">
-      <p>Колір: <span>жовтий</span></p>
-      <p>Колекція: <span>Новий сезон</span></p>
-      <p>Склад: <span>35% шерсть, 35% віскоза, 30% акрил</span></p>
-      <p>Матеріал: <span>Шерсть з акрилом</span></p>
+      <p>Колір: <span>{{order.colour.name}}</span></p>
+      <p>Розмір: <span>{{order.size.value}}</span></p>
+      <p>Колекція: <span>{{order.product.collection.name}}</span></p>
+      <p>Склад: <span>{{order.product.madeOf}}</span></p>
+      <p>Матеріал: <span>{{order.product.madeOf}}</span></p>
     </div>
-    <p class="price">Ціна: <span>10 000</span>₴</p>
-    <button class="pointer" (click)="cancelOrder()">Скасувати замовлення</button>
+    <p class="price">Ціна: <span>{{order.totalPrice}}</span>₴</p>
+<!--    <button class="pointer" (click)="cancelOrder()">Скасувати замовлення</button>-->
   </div>
 </div>
 

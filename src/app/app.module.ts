@@ -25,6 +25,8 @@ import { OneOrderComponent } from './home/orders/one-order/one-order.component';
 import { CreateOrderComponent } from './dialog/create-order/create-order.component';
 import { CancelOrderComponent } from './dialog/cancel-order/cancel-order.component';
 import { ConfirmExitComponent } from './dialog/confirm-exit/confirm-exit.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './shared/service/interceptors/auth.interceptor';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -78,7 +80,13 @@ const routes: Routes = [
     MaterialModule,
     GlobalImportModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
